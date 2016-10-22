@@ -17,19 +17,22 @@ $tiempoInicial5 = 0;
 
 $tiempoConPausa = $tiempoTranscurrido;
 
+$nuevaVel = 0;
+
 /*
 $peso= array ("cero", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez");
+debug($peso);
 foreach($peso as $k=>$v){
   if($k==3){
   	echo "a";
-   	array_splice($peso, 3, 5);
+   	array_splice($peso, $k, 5);
    }
   debug($v);
 }
-debug($peso);
+debug ($peso);
 */
-
 //EL foreach sigue recorriendo en los elementos que se "borraron". Ver ejemplo de arriba
+
 
 foreach ($velocidades as $index=>$value) {
 	$vel = $value[1];
@@ -44,7 +47,7 @@ foreach ($velocidades as $index=>$value) {
 	if($vel < 5){
 		$tiempoPausa = 0;
 		$offset = 0;
-		debug($value);
+		//debug($value);
 		foreach ($velocidades as $k => $v) {
 			if ($k < $index) continue;
 			//debug($v);
@@ -64,5 +67,28 @@ foreach ($velocidades as $index=>$value) {
 	//if ($index >0) ritmos2($medioKm, $unKm, $dosKm, $cincoKm);
 }
 
+
+
+/*
+//$peso = array(4, 4, 5, 2, 1, 2, 3, 4, 5);
+debug($peso);
+echo "---";
+$nn = 0;
+
+foreach ($peso as $index => $value) {
+	if($nn != 0){
+		if($index == $nn)
+			$nn = 0;
+		else
+			continue;
+	}
+	debug ($value);
+	if($index == 2){
+		array_splice($peso, $index, 3);
+		$nn = $index + 3;
+	}
+
+}
+*/
 
  ?>
