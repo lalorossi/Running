@@ -185,7 +185,7 @@ $cantGrid = calculoGrids($distanciaDesdeInicio);
 //debug($distancias);
 //debug($velocidades);
 //debug($grafico);
-//debug($medioKm);
+debug($medioKm);
 //debug($unKm);
 //debug($dosKm);
 //debug($cincoKm);
