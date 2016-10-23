@@ -33,31 +33,37 @@ debug ($peso);
 */
 //EL foreach sigue recorriendo en los elementos que se "borraron". Ver ejemplo de arriba
 
+debug($velocidades);
 
 foreach ($velocidades as $index=>$value) {
-	$vel = $value[1];
-	$time = $value[2];
-	
 	if($nuevaVel != 0){
 		if($index == $nuevaVel)
 			$nuevaVel = 0;
 		else
 			continue;
 	}
+
+	$vel = $value[1];
+	$time = $value[2];
+	
+	debug($index);
 	if($vel < 5){
+		echo "---";
 		$tiempoPausa = 0;
-		$offset = 0;
-		//debug($value);
+		$offset = 0;  
 		foreach ($velocidades as $k => $v) {
-			if ($k < $index) continue;
+			if ($k <= $index) continue;
 			//debug($v);
 			if($v[1] < 5){
+				debug("$k,".($tiempoPausa*3600)."");	
 				$tiempoPausa = $v[2] - $time;
 				$offset += 1;
 			}
-			else	break;
+			else	
+				break;
 		}
 		if(($tiempoPausa*3600)>=2){
+			debug("pauso");
 			array_splice($velocidades, $index, $offset);
 			$nuevaVel = $index + $offset;
 		}
@@ -66,6 +72,7 @@ foreach ($velocidades as $index=>$value) {
 	$tiempoConPausa = $tiempoConPausa - $tiempoPausa;
 	//if ($index >0) ritmos2($medioKm, $unKm, $dosKm, $cincoKm);
 }
+debug ($velocidades);
 
 
 

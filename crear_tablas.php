@@ -156,7 +156,7 @@ array_splice($peso, 3, 5);
 debug($peso);
 */
 
-include_once "filtros2.php";
+include_once "filtrosFOR.php";
 /*
 //Calculo de ritmos de vueltas finales incompletas
 ultimoRitmo($tiempoTranscurrido, $distanciaDesdeInicio, 0.5, $tiempoInicial05, $medioKm);
