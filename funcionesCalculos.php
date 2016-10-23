@@ -180,7 +180,6 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
 
   if($distanciaDesdeInicio >= $vuelta05){
     $deltaT05 = $tiempoConPausa-$tiempoInicial05;
-    echo $tiempoConPausa . "     -     " . $tiempoInicial05 . "     =      " . $deltaT05 . "<br>";
     $velocidad05 = 0.5/$deltaT05;
     $ritmo05 = (($deltaT05*60)/0.5);
     $ritmo05 = formatoMin($ritmo05, true);

@@ -41,13 +41,12 @@ for ($i=0; $i<$key; $i++){
 			array_splice($velocidades, $i, $x-$i);
 			$key -= $offset;
 			$i-=1;
-			debug($i);
 		}
 		//Podría hacer un continue hasata $index+$offset
 	}
 	$tiempoConPausa = $tiempoConPausa - $tiempoPausa;
 	$tiempoPausa = 0;
-	//if ($index >0) ritmos2($medioKm, $unKm, $dosKm, $cincoKm);
+	if ($i >0) ritmos2($medioKm, $unKm, $dosKm, $cincoKm);
 }
 
 
