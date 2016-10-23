@@ -169,7 +169,7 @@ function ritmos(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
 }
 
 function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
-  global $distanciaDesdeInicio;
+  global $dist;
   global $time;
   global $vuelta05;
   global $tiempoInicial05;
@@ -178,7 +178,7 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
   global $tiempoInicial2;
   global $tiempoInicial5;
 
-  if($distanciaDesdeInicio >= $vuelta05){
+  if($dist >= $vuelta05){
     $deltaT05 = $time-$tiempoInicial05;
     $velocidad05 = 0.5/$deltaT05;
     $ritmo05 = (($deltaT05*60)/0.5);

@@ -17,18 +17,24 @@ $tiempoInicial5 = 0;
 $tiempoConPausa = $tiempoTranscurrido;
 $tiempoTotalPausa = 0;
 
+$distConPausa = $distanciaDesdeInicio;
+$distTotalPausa = 0;
+
 end($velocidades);         // move the internal pointer to the end of the array
 $key = key($velocidades);
 
 for ($i=0; $i<$key; $i++){
+	$dist = $velocidades[$i][0];
 	$vel = $velocidades[$i][1];
 	$time = $velocidades[$i][2];
 	if($vel < 5){
 		$tiempoPausa = 0;
+		$distPausa = 0;
 		$offset = 0;  
 		for($x=$i+1; $x<$key; $x++){
 			if($velocidades[$x][1] < 5){
 				$tiempoPausa = $velocidades[$x][2] - $time;
+				$distPausa = $velocidades[$x][0] - $dist;
 				$offset += 1;
 			}
 			else	
@@ -44,16 +50,18 @@ for ($i=0; $i<$key; $i++){
 	$tiempoConPausa = $tiempoConPausa - $tiempoPausa;
 	$tiempoTotalPausa += $tiempoPausa;
 	$time -= $tiempoTotalPausa;
-	//debug($time);
 	$tiempoPausa = 0;
+
+	$distConPausa = $distConPausa - $distPausa;
+	$distTotalPausa += $distPausa;
+	$dist -= $distTotalPausa;
+	$distPausa = 0;
+
 	if ($i>0){
-		$distanciaDesdeInicio = $velocidades[$i][0];
 		ritmos2($medioKm, $unKm, $dosKm, $cincoKm);
 	} 
-	//Hay que ajustar los cambios para que también modifiquen la distancia (Velocidades[$i][0])
-	//Y aplicar las pausas a los array de elevaciones y distancias
+	//Aplicar las pausas a los array de elevaciones y distancias
 }
-
 
 //Calculo de ritmos de vueltas finales incompletas
 ultimoRitmo($tiempoConPausa, $distanciaDesdeInicio, 0.5, $tiempoInicial05, $medioKm);

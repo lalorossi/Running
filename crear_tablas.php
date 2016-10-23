@@ -185,7 +185,7 @@ $cantGrid = calculoGrids($distanciaDesdeInicio);
 //debug($distancias);
 //debug($velocidades);
 //debug($grafico);
-debug($medioKm);
+//debug($medioKm);
 //debug($unKm);
 //debug($dosKm);
 //debug($cincoKm);
@@ -193,6 +193,9 @@ debug($medioKm);
 
 
 include_once 'draw.php';  
+
+//APLICAR LOS CAMBIOS DE LAS PAUSAS A TODAS LAS VARIABLES
+
 ?>
 
 <html>
@@ -205,6 +208,8 @@ include_once 'draw.php';
 <br><?= $tiempoConPausa ?></br>
 <h1>Distancia</h1>
 <br><?= $distanciaDesdeInicio; ?></br>
+<h1>Distancia Con Pausa</h1>
+<br><?= $distConPausa; ?></br>
 <h1>Velocidad media</h1>
 <br><?= $velocidadMedia; ?></br>
 <h1>Velocidad máxima</h1>
