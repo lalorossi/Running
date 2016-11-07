@@ -68,17 +68,7 @@ $medioKm = array();
 $unKm = array();
 $dosKm = array();
 $cincoKm = array();
-/*
-//Para buscar las distancias que coincidan con la distancia de vuelta
-$vuelta05 = 0.5;                
-$vuelta1 = 1;
 
-//Para sacar el delta T de la vuelta
-$tiempoInicial05 = 0;           
-$tiempoInicial1 = 0;
-$tiempoInicial2 = 0;
-$tiempoInicial5 = 0;
-*/
 $tiempoConPausa = 0;                       //Suma de los deltaT (sirve para calcular tiempos con pausas)
 
 
@@ -122,11 +112,6 @@ foreach($xml->trk->trkseg->trkpt as $in=>$punto){
     //$tiempoConPausa = $tiempoConPausa + $deltaT;
 
 
-    //Calculo de ritmos por vueltas
-    //SI METO LAS PAUSAS A ESTE FOREACH, ESTO TIENE QUE SALIR 
-    //ritmos($medioKm, $unKm, $dosKm, $cincoKm);
-
-
     //Array de distancias en funcion del tiempo transcurrido 
     // LO VOY A TERMINAR SACANDO. SIRVE PARA CHEQUEOS
     array_push($distancias, [($tiempoTranscurrido*60), $distanciaDesdeInicio]);
@@ -157,13 +142,7 @@ debug($peso);
 */
 
 include_once "filtrosFOR.php";
-/*
-//Calculo de ritmos de vueltas finales incompletas
-ultimoRitmo($tiempoTranscurrido, $distanciaDesdeInicio, 0.5, $tiempoInicial05, $medioKm);
-ultimoRitmo($tiempoTranscurrido, $distanciaDesdeInicio, 1, $tiempoInicial1, $unKm);
-ultimoRitmo($tiempoTranscurrido, $distanciaDesdeInicio, 2, $tiempoInicial2, $dosKm);
-ultimoRitmo($tiempoTranscurrido, $distanciaDesdeInicio, 5, $tiempoInicial5, $cincoKm);
-*/
+
 
 //Sacar la velocidad media en Km/h
 $velocidadMedia = $distanciaDesdeInicio / $tiempoTranscurrido;
