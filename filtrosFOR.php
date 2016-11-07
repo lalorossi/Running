@@ -3,6 +3,7 @@
 
 end($velocidades);         // move the internal pointer to the end of the array
 $key = key($velocidades);
+$velMax = 0;
 
 //Para buscar las distancias que coincidan con la distancia de vuelta
 $vuelta05 = 0.5;                
@@ -19,6 +20,8 @@ $tiempoTotalPausa = 0;
 
 $distConPausa = $distanciaDesdeInicio;
 $distTotalPausa = 0;
+$tiempoPausa = 0;
+$distPausa = 0;
 
 end($velocidades);         // move the internal pointer to the end of the array
 $key = key($velocidades);
@@ -56,6 +59,10 @@ for ($i=0; $i<$key; $i++){
 	$distTotalPausa += $distPausa;
 	$dist -= $distTotalPausa;
 	$distPausa = 0;
+
+	if($i>0 and $velocidades[$i][1]>$velMax) $velMax = $velocidades[$i][1];
+	//Para evitar que trate de leer el -1
+
 
 	if ($i>0){
 		ritmos2($medioKm, $unKm, $dosKm, $cincoKm);

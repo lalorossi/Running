@@ -147,13 +147,14 @@ include_once "filtrosFOR.php";
 //Sacar la velocidad media en Km/h
 $velocidadMedia = $distanciaDesdeInicio / $tiempoTranscurrido;
 
+//Sacar la velocidad media con pausas
+$velocidadMediaConPausa = $distConPausa / $tiempoConPausa;
+
 //Sacar el ritmo en min/Km
 $ritmo = (($tiempoTranscurrido*60)/$distanciaDesdeInicio);
-$ritmo = formatoMin($ritmo, true);
 
-//Tiempos con pausas ($tiempoConPausa) o sin
-$tiempoTranscurrido = formatoMin($tiempoTranscurrido*60);
-$tiempoConPausa = formatoMin($tiempoConPausa*60);
+//Para sacar el ritmo con pausas
+$ritmoConPausa = (($tiempoConPausa*60)/$distConPausa);
 
 //Cantidad de cuadriculas en el grafico
 $cantGrid = calculoGrids($distanciaDesdeInicio);
@@ -170,6 +171,11 @@ $cantGrid = calculoGrids($distanciaDesdeInicio);
 //debug($cincoKm);
 
 
+//Darle formato legible a las variables
+$tiempoTranscurrido = formatoMin($tiempoTranscurrido*60);
+$tiempoConPausa = formatoMin($tiempoConPausa*60);
+$ritmoConPausa = formatoMin($ritmoConPausa, true);
+$ritmo = formatoMin($ritmo, true);
 
 include_once 'draw.php';  
 
@@ -191,11 +197,15 @@ include_once 'draw.php';
 <br><?= $distConPausa; ?></br>
 <h1>Velocidad media</h1>
 <br><?= $velocidadMedia; ?></br>
+<h1>Velocidad media con Pausa</h1>
+<br><?= $velocidadMediaConPausa; ?></br>
 <h1>Velocidad máxima</h1>
 <br><?= $velMax; ?></br>
 <h1>Subida total</h1>
 <br><?= $elevacionTotal; ?></br>
 <h1>Ritmo</h1>
 <br><?= $ritmo ?></br>
+<h1>Ritmo con pausas</h1>
+<br><?= $ritmoConPausa ?></br>
 </body>
 </html>
