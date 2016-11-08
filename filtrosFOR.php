@@ -71,12 +71,11 @@ for ($i=0; $i<$key; $i++){
 	} 
 	//Aplicar las pausas a los array de elevaciones y distancias
 }
-
 //Calculo de ritmos de vueltas finales incompletas
-ultimoRitmo($tiempoConPausa, $distanciaDesdeInicio, 0.5, $tiempoInicial05, $medioKm);
-ultimoRitmo($tiempoConPausa, $distanciaDesdeInicio, 1, $tiempoInicial1, $unKm);
-ultimoRitmo($tiempoConPausa, $distanciaDesdeInicio, 2, $tiempoInicial2, $dosKm);
-ultimoRitmo($tiempoConPausa, $distanciaDesdeInicio, 5, $tiempoInicial5, $cincoKm);
+ultimoRitmo($tiempoConPausa, $distConPausa, 0.5, $tiempoInicial05, $medioKm);
+ultimoRitmo($tiempoConPausa, $distConPausa, 1, $tiempoInicial1, $unKm);
+ultimoRitmo($tiempoConPausa, $distConPausa, 2, $tiempoInicial2, $dosKm);
+ultimoRitmo($tiempoConPausa, $distConPausa, 5, $tiempoInicial5, $cincoKm);
 
 
 

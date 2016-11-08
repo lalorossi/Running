@@ -197,6 +197,13 @@ function changeView(newView) {
     //alert(current_ID);
   }
 </script>
+<script type="text/javascript">
+function cambioVuelta(){
+
+var e = document.getElementById("distVuelta");
+var strUser = e.options[e.selectedIndex].value;
+}
+</script>
 
 </head>
 <body>
@@ -242,13 +249,17 @@ function changeView(newView) {
     
     <br></br>
     Distancia de vuelta: 
-    <select name="vuelta">
-       <option value="0">0.5 KM</option> 
+    <select name="vuelta" id="distVuelta" onchange="cambioVuelta()">
+       <option value="0.5">0.5 KM</option> 
        <option value="1">1 KM</option> 
        <option value="2">2KM</option>
        <option value="5">5 KM</option> 
     </select>
-    <div>TABLA DE RITMOS DE LAS VUELTAS SELECCIONADAS</div>
+    <div>distancia  tiempo  ritmo   num</div>
+    <?php foreach ($medioKm as $key => $value) {
+      ?><div><?php echo  ($key+1)."     ". $value[1]."     ". $value[0]."    ". $value[2];?></div><?php
+    }
+    ?>
 
   </div>
 </body>
