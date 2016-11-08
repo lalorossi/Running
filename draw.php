@@ -98,7 +98,9 @@ function changeGraph(newID) {
 </head>
 
 <body>
+  <button onclick="window.location.href='/lalo/index.php'">Subir Nuevo Archivo</button>
 
+  <br></br>
   <button type="button" onclick=changeGraph('vel')>VELOCIDADES</button>
   <button type="button" onclick=changeGraph('ele')>ELEVACIONES</button>
   <button type="button" onclick=changeGraph('dis')>DISTANCIAS</button>
@@ -107,8 +109,7 @@ function changeGraph(newID) {
   <div id="ele" style="float:left; display:none"></div>
   <div id="dis" style="float:left; display:none"></div>
 
-
-  <button onclick="window.location.href='/lalo/index.php'">Subir Nuevo Archivo</button>
+  
 
   
 </body>

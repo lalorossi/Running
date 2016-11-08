@@ -184,28 +184,72 @@ include_once 'draw.php';
 ?>
 
 <html>
+<head>
+
+<script>
+
+var currentView = 'datos';
+function changeView(newView) {
+
+    document.getElementById(currentView).style.display='none';
+    document.getElementById(newView).style.display = '';
+    currentView = newView;
+    //alert(current_ID);
+  }
+</script>
+
+</head>
 <body>
-<h1>Día de la actividad</h1>
-<br><?= $fechaActividad ?></br>
-<h1>Tiempo total</h1>
-<br><?= $tiempoTranscurrido ?></br>
-<h1>Tiempo en movimiento</h1>
-<br><?= $tiempoConPausa ?></br>
-<h1>Distancia</h1>
-<br><?= $distanciaDesdeInicio; ?></br>
-<h1>Distancia Con Pausa</h1>
-<br><?= $distConPausa; ?></br>
-<h1>Velocidad media</h1>
-<br><?= $velocidadMedia; ?></br>
-<h1>Velocidad media con Pausa</h1>
-<br><?= $velocidadMediaConPausa; ?></br>
-<h1>Velocidad máxima</h1>
-<br><?= $velMax; ?></br>
-<h1>Subida total</h1>
-<br><?= $elevacionTotal; ?></br>
-<h1>Ritmo</h1>
-<br><?= $ritmo ?></br>
-<h1>Ritmo con pausas</h1>
-<br><?= $ritmoConPausa ?></br>
+  <br></br>
+  <button type="button" onclick=changeView('datos')>Estadisticas</button>
+  <button type="button" onclick=changeView('ritmo')>Ritmos</button>
+  <div id="datos">
+    <h3>Día de la actividad</h3>
+    <?= $fechaActividad ?>
+    <br></br>
+    <h3>Tiempo total</h3>
+    <?= $tiempoTranscurrido ?>
+    <br></br>
+    <h3>Tiempo en movimiento</h3>
+    <?= $tiempoConPausa ?>
+    <br></br>
+    <h3>Distancia</h3>
+    <?= $distanciaDesdeInicio; ?>
+    <br></br>
+    <h3>Distancia Con Pausa</h3>
+    <?= $distConPausa; ?>
+    <br></br>
+    <h3>Velocidad media</h3>
+    <?= $velocidadMedia; ?>
+    <br></br>
+    <h3>Velocidad media con Pausa</h3>
+    <?= $velocidadMediaConPausa; ?>
+    <br></br>
+    <h3>Velocidad máxima</h3>
+    <?= $velMax; ?>
+    <br></br>
+    <h3>Subida total</h3>
+    <?= $elevacionTotal; ?>
+    <br></br>
+    <h3>Ritmo</h3>
+    <?= $ritmo ?>
+    <br></br>
+    <h3>Ritmo con pausas</h3>
+    <?= $ritmoConPausa ?>
+    <br></br>
+  </div>
+  <div id="ritmo" style="display:none ">
+    
+    <br></br>
+    Distancia de vuelta: 
+    <select name="vuelta">
+       <option value="0">0.5 KM</option> 
+       <option value="1">1 KM</option> 
+       <option value="2">2KM</option>
+       <option value="5">5 KM</option> 
+    </select>
+    <div>TABLA DE RITMOS DE LAS VUELTAS SELECCIONADAS</div>
+
+  </div>
 </body>
 </html>

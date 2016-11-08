@@ -46,6 +46,8 @@ for ($i=0; $i<$key; $i++){
 		if(($tiempoPausa*3600)>=2){
 			$offset += 1;
 			array_splice($velocidades, $i, $x-$i);
+			array_splice($distancias, $i, $x-$i);
+			array_splice($distancias, $i, $x-$i);
 			$key -= $offset;
 			$i-=1;
 		}
