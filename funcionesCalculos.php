@@ -183,21 +183,21 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
     $velocidad05 = 0.5/$deltaT05;
     $ritmo05 = (($deltaT05*60)/0.5);
     $ritmo05 = formatoMin($ritmo05, true);
-    array_push($medioKm, [$ritmo05, $velocidad05, formatoMin($deltaT05*60)]);
+    array_push($medioKm, [$ritmo05, $velocidad05, formatoMin($deltaT05*60), $vuelta05]);
 
     if($vuelta05 == $vuelta1){
       $deltaT1 = $time - $tiempoInicial1;
       $velocidad1 = 1/$deltaT1;
       $ritmo1 = ($deltaT1*60);
       $ritmo1 = formatoMin($ritmo1, true);
-      array_push($unKm, [$ritmo1, $velocidad1, formatoMin($deltaT1*60)]);
+      array_push($unKm, [$ritmo1, $velocidad1, formatoMin($deltaT1*60), $vuelta1]);
 
       if($vuelta1%2 == 0){
         $deltaT2 = $time - $tiempoInicial2;
         $velocidad2 = 2/$deltaT2;
         $ritmo2 = (($deltaT2*60)/2);
         $ritmo2 = formatoMin($ritmo2, true);
-        array_push($dosKm, [$ritmo2, $velocidad2, formatoMin($deltaT2*60)]);
+        array_push($dosKm, [$ritmo2, $velocidad2, formatoMin($deltaT2*60), $vuelta1]);
 
         $tiempoInicial2 = $time;
       }
@@ -207,7 +207,7 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
         $velocidad5 = 5/$deltaT5;
         $ritmo5 = (($deltaT5*60)/5);
         $ritmo5 = formatoMin($ritmo5, true);
-        array_push($cincoKm, [$ritmo5, $velocidad5, formatoMin($deltaT5*60)]);
+        array_push($cincoKm, [$ritmo5, $velocidad5, formatoMin($deltaT5*60), $vuelta1]);
 
         $tiempoInicial5 = $time;
       }
@@ -229,7 +229,7 @@ function ultimoRitmo($tiempoTranscurrido, $distanciaDesdeInicio, $distVuelta, $u
   $velocidad = $distVuelta/$deltaT;
   $ritmo = (($deltaT*60)/$distVuelta);
   $ritmo = formatoMin($ritmo, true);
-  array_push($array, [$ritmo, $velocidad, formatoMin($deltaT*60)]);
+  array_push($array, [$ritmo, $velocidad, formatoMin($deltaT*60), $distanciaDesdeInicio]);
 }
 
  ?>

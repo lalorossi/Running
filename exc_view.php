@@ -102,13 +102,15 @@ function cambioVuelta(){
 		    <th>Velocidad de vuelta</th>
 		    <th>Ritmo de Vuelta</th>
 		    <th>Duración de vuelta</th>
+		    <th>Distancia</th>
 		  </tr>
 			  <?php foreach ($medioKm as $key => $value) {	?>
 			  <tr>
 			  	<td><?= $key+1; ?>
-			  	<td><?= $value[1]; ?>
+			  	<td><?= round($value[1], 2); ?>
 			  	<td><?= $value[0]; ?>
 			  	<td><?= $value[2]; ?>
+			  	<td><?= round($value[3], 2); ?>
 			  </tr>
 			  <?php  }	?>
 		</table>
@@ -119,13 +121,15 @@ function cambioVuelta(){
 		    <th>Velocidad de vuelta</th>
 		    <th>Ritmo de Vuelta</th>
 		    <th>Duración de vuelta</th>
+		    <th>Distancia</th>
 		  </tr>
 			  <?php foreach ($unKm as $key => $value) {	?>
 			  <tr>
 			  	<td><?= $key+1; ?>
-			  	<td><?= $value[1]; ?>
+			  	<td><?= round($value[1], 2); ?>
 			  	<td><?= $value[0]; ?>
 			  	<td><?= $value[2]; ?>
+			  	<td><?= round($value[3], 2); ?>
 			  </tr>
 			  <?php  }	?>
 		</table>
@@ -136,13 +140,15 @@ function cambioVuelta(){
 		    <th>Velocidad de vuelta</th>
 		    <th>Ritmo de Vuelta</th>
 		    <th>Duración de vuelta</th>
+		    <th>Distancia</th>
 		  </tr>
 			  <?php foreach ($dosKm as $key => $value) {	?>
 			  <tr>
 			  	<td><?= $key+1; ?>
-			  	<td><?= $value[1]; ?>
+			  	<td><?= round($value[1], 2); ?>
 			  	<td><?= $value[0]; ?>
 			  	<td><?= $value[2]; ?>
+			  	<td><?= round($value[3], 2); ?>
 			  </tr>
 			  <?php  }	?>
 		</table>
@@ -153,13 +159,15 @@ function cambioVuelta(){
 		    <th>Velocidad de vuelta</th>
 		    <th>Ritmo de Vuelta</th>
 		    <th>Duración de vuelta</th>
+		    <th>Distancia</th>
 		  </tr>
 			  <?php foreach ($cincoKm as $key => $value) {	?>
 			  <tr>
 			  	<td><?= $key+1; ?>
-			  	<td><?= $value[1]; ?>
+			  	<td><?= round($value[1], 2); ?>
 			  	<td><?= $value[0]; ?>
 			  	<td><?= $value[2]; ?>
+			  	<td><?= round($value[3], 2); ?>
 			  </tr>
 			  <?php  }	?>
 		</table>
