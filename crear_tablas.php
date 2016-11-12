@@ -178,89 +178,10 @@ $ritmoConPausa = formatoMin($ritmoConPausa, true);
 $ritmo = formatoMin($ritmo, true);
 
 include_once 'draw.php';  
+include_once 'exc_view.php';  
+
 
 //APLICAR LOS CAMBIOS DE LAS PAUSAS A TODAS LAS VARIABLES
 
 ?>
 
-<html>
-<head>
-
-<script>
-
-var currentView = 'datos';
-function changeView(newView) {
-
-    document.getElementById(currentView).style.display='none';
-    document.getElementById(newView).style.display = '';
-    currentView = newView;
-    //alert(current_ID);
-  }
-</script>
-<script type="text/javascript">
-function cambioVuelta(){
-
-var e = document.getElementById("distVuelta");
-var strUser = e.options[e.selectedIndex].value;
-}
-</script>
-
-</head>
-<body>
-  <br></br>
-  <button type="button" onclick=changeView('datos')>Estadisticas</button>
-  <button type="button" onclick=changeView('ritmo')>Ritmos</button>
-  <div id="datos">
-    <h3>Día de la actividad</h3>
-    <?= $fechaActividad ?>
-    <br></br>
-    <h3>Tiempo total</h3>
-    <?= $tiempoTranscurrido ?>
-    <br></br>
-    <h3>Tiempo en movimiento</h3>
-    <?= $tiempoConPausa ?>
-    <br></br>
-    <h3>Distancia</h3>
-    <?= $distanciaDesdeInicio; ?>
-    <br></br>
-    <h3>Distancia Con Pausa</h3>
-    <?= $distConPausa; ?>
-    <br></br>
-    <h3>Velocidad media</h3>
-    <?= $velocidadMedia; ?>
-    <br></br>
-    <h3>Velocidad media con Pausa</h3>
-    <?= $velocidadMediaConPausa; ?>
-    <br></br>
-    <h3>Velocidad máxima</h3>
-    <?= $velMax; ?>
-    <br></br>
-    <h3>Subida total</h3>
-    <?= $elevacionTotal; ?>
-    <br></br>
-    <h3>Ritmo</h3>
-    <?= $ritmo ?>
-    <br></br>
-    <h3>Ritmo con pausas</h3>
-    <?= $ritmoConPausa ?>
-    <br></br>
-  </div>
-  <div id="ritmo" style="display:none ">
-    
-    <br></br>
-    Distancia de vuelta: 
-    <select name="vuelta" id="distVuelta" onchange="cambioVuelta()">
-       <option value="0.5">0.5 KM</option> 
-       <option value="1">1 KM</option> 
-       <option value="2">2KM</option>
-       <option value="5">5 KM</option> 
-    </select>
-    <div>distancia  tiempo  ritmo   num</div>
-    <?php foreach ($medioKm as $key => $value) {
-      ?><div><?php echo  ($key+1)."     ". $value[1]."     ". $value[0]."    ". $value[2];?></div><?php
-    }
-    ?>
-
-  </div>
-</body>
-</html>
