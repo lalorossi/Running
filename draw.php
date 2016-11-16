@@ -81,7 +81,7 @@ function changeGraph(newID) {
         gridlines : { color: '#ff9900', opacity : 0.4, count : 4 }
       },
       series: {
-        0: {color : '#ff9900', areaOpacity : 0.5},
+        0: {color : '#66b3ff', areaOpacity : 0.5},
         1: {color: 'red', areaOpacity : 0.0, lineWidth : 1.75, lineDashStyle: [8,6]}
       }
     };
