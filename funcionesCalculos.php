@@ -178,9 +178,19 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
   global $tiempoInicial2;
   global $tiempoInicial5;
 
+  global $max05;
+  global $max1;
+  global $max2;
+  global $max5;
+
+  $rap05 = false;
+
   if($dist >= $vuelta05){
     $deltaT05 = $time-$tiempoInicial05;
     $velocidad05 = 0.5/$deltaT05;
+
+    if($velocidad05 > $max05 )  $max05 = $velocidad05;
+
     $ritmo05 = (($deltaT05*60)/0.5);
     $ritmo05 = formatoMin($ritmo05, true);
     array_push($medioKm, [$ritmo05, $velocidad05, formatoMin($deltaT05*60), $vuelta05]);

@@ -104,8 +104,18 @@ function cambioVuelta(){
 		    <th>Duración de vuelta</th>
 		    <th>Distancia</th>
 		  </tr>
-			  <?php foreach ($medioKm as $key => $value) {	?>
-			  <tr>
+			  <?php foreach ($medioKm as $key => $value) {
+				if($value[1] >= $max05){
+				?>
+			  	<tr bgcolor="#4db8ff">
+				<?php
+				}
+				else{
+				?>
+			  	<tr>
+				<?php
+				}
+				?>
 			  	<td><?= $key+1; ?>
 			  	<td><?= round($value[1], 2); ?>
 			  	<td><?= $value[0]; ?>
