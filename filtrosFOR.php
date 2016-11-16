@@ -37,10 +37,6 @@ $min5 = 60;
 $ascTotal = 0;
 $desTotal = 0;
 $eleAnterior = $elevaciones[1][1];
-$subida = true;
-$bajada = false;
-$alto = $elevaciones[1][1];
-$bajo = $elevaciones[1][1];
 
 end($velocidades);         // move the internal pointer to the end of the array
 $key = key($velocidades);
@@ -84,29 +80,11 @@ for ($i=0; $i<$key; $i++){
 	if ($i>0){
 		//Calculo de ascenso/descenso
 		$ele = $elevaciones[$i][1];
-		if($bajada){
-			//$ascTotal += ($ele - $eleAnterior);
-			if($ele > $eleAnterior){
-				$desTotal += ($alto - $bajo);
-				$bajada = false;
-				$subida = true;
-				$bajo = $ele;
-			}
-			else{
-				$bajo = $ele; 
-			}
+		if($ele > $eleAnterior){
+			$ascTotal += ($ele - $eleAnterior);
 		}
-		if($subida){
-			//$desTotal += ($eleAnterior - $ele);
-			if($ele < $eleAnterior){
-				$ascTotal += ($alto - $bajo);
-				$bajada = true;
-				$subida = false;
-				$alto = $ele;
-			}
-			else{
-				$alto = $ele;
-			}
+		else{
+			$desTotal += ($eleAnterior - $ele);
 		}
 
 		$eleAnterior = $ele;
