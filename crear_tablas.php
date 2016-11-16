@@ -132,7 +132,6 @@ foreach($xml->trk->trkseg->trkpt as $in=>$punto){
 
 }
 
-
 /*
 PARA SABER COMO FUNCIONA EL SPLICE
 

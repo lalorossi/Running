@@ -1,9 +1,16 @@
 <?php 
 
-
 end($velocidades);         // move the internal pointer to the end of the array
 $key = key($velocidades);
 $velMax = 0;
+
+$tiempoConPausa = $tiempoTranscurrido;
+$tiempoTotalPausa = 0;
+
+$distConPausa = $distanciaDesdeInicio;
+$distTotalPausa = 0;
+$tiempoPausa = 0;
+$distPausa = 0;
 
 //Para buscar las distancias que coincidan con la distancia de vuelta
 $vuelta05 = 0.5;                
@@ -15,23 +22,25 @@ $tiempoInicial1 = 0;
 $tiempoInicial2 = 0;
 $tiempoInicial5 = 0;
 
-$tiempoConPausa = $tiempoTranscurrido;
-$tiempoTotalPausa = 0;
-
-$distConPausa = $distanciaDesdeInicio;
-$distTotalPausa = 0;
-$tiempoPausa = 0;
-$distPausa = 0;
-
+//Varibales para vuelta rapida
 $max05 = 0;
 $max1 = 0;
 $max2 = 0;
 $max5 = 0;
 
+//Varibales para vuelta lenta
 $min05 = 60;
 $min1 = 60;
 $min2 = 60;
 $min5 = 60;
+
+$ascTotal = 0;
+$desTotal = 0;
+$eleAnterior = $elevaciones[1][1];
+$subida = true;
+$bajada = false;
+$alto = $elevaciones[1][1];
+$bajo = $elevaciones[1][1];
 
 end($velocidades);         // move the internal pointer to the end of the array
 $key = key($velocidades);
@@ -71,6 +80,39 @@ for ($i=0; $i<$key; $i++){
 	$distTotalPausa += $distPausa;
 	$dist -= $distTotalPausa;
 	$distPausa = 0;
+
+	if ($i>0){
+		//Calculo de ascenso/descenso
+		$ele = $elevaciones[$i][1];
+		if($bajada){
+			//$ascTotal += ($ele - $eleAnterior);
+			if($ele > $eleAnterior){
+				$desTotal += ($alto - $bajo);
+				$bajada = false;
+				$subida = true;
+				$bajo = $ele;
+			}
+			else{
+				$bajo = $ele; 
+			}
+		}
+		if($subida){
+			//$desTotal += ($eleAnterior - $ele);
+			if($ele < $eleAnterior){
+				$ascTotal += ($alto - $bajo);
+				$bajada = true;
+				$subida = false;
+				$alto = $ele;
+			}
+			else{
+				$alto = $ele;
+			}
+		}
+
+		$eleAnterior = $ele;
+		echo $ascTotal."--------------".$desTotal. "<br>";
+	}
+
 
 	if($i>0 and $velocidades[$i][1]>$velMax) $velMax = $velocidades[$i][1];
 	//Para evitar que trate de leer el -1
