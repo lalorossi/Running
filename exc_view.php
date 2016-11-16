@@ -110,6 +110,11 @@ function cambioVuelta(){
 			  	<tr style="background-color:#4db8ff">
 				<?php
 				}
+				else if($value[1] <= $min05){
+				?>
+			  	<tr style="background-color:#ff3333">
+				<?php
+				}
 				else{
 				?>
 			  	<tr>
@@ -137,6 +142,11 @@ function cambioVuelta(){
 				if($value[1] >= $max1){
 				?>
 			  	<tr style="background-color:#4db8ff">
+				<?php
+				}
+				else if($value[1] <= $min1){
+				?>
+			  	<tr style="background-color:#ff3333">
 				<?php
 				}
 				else{
@@ -168,6 +178,11 @@ function cambioVuelta(){
 			  	<tr style="background-color:#4db8ff">
 				<?php
 				}
+				else if($value[1] <= $min2){
+				?>
+			  	<tr style="background-color:#ff3333">
+				<?php
+				}
 				else{
 				?>
 			  	<tr>
@@ -195,6 +210,11 @@ function cambioVuelta(){
 				if($value[1] >= $max5){
 				?>
 			  	<tr style="background-color:#4db8ff">
+				<?php
+				}
+				else if($value[1] <= $min5){
+				?>
+			  	<tr style="background-color:#ff3333">
 				<?php
 				}
 				else{

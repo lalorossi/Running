@@ -28,6 +28,11 @@ $max1 = 0;
 $max2 = 0;
 $max5 = 0;
 
+$min05 = 60;
+$min1 = 60;
+$min2 = 60;
+$min5 = 60;
+
 end($velocidades);         // move the internal pointer to the end of the array
 $key = key($velocidades);
 

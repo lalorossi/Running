@@ -183,6 +183,11 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
   global $max2;
   global $max5;
 
+  global $min05;
+  global $min1;
+  global $min2;
+  global $min5;
+
   $rap05 = false;
 
   if($dist >= $vuelta05){
@@ -190,6 +195,7 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
     $velocidad05 = 0.5/$deltaT05;
 
     if($velocidad05 > $max05 )  $max05 = $velocidad05;
+    if($velocidad05 < $min05 )  $min05 = $velocidad05;
 
     $ritmo05 = (($deltaT05*60)/0.5);
     $ritmo05 = formatoMin($ritmo05, true);
@@ -200,6 +206,7 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
       $velocidad1 = 1/$deltaT1;
 
       if($velocidad1 > $max1 )  $max1 = $velocidad1;
+      if($velocidad1 < $min1 )  $min1 = $velocidad1;
 
       $ritmo1 = ($deltaT1*60);
       $ritmo1 = formatoMin($ritmo1, true);
@@ -210,6 +217,7 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
         $velocidad2 = 2/$deltaT2;
 
         if($velocidad2 > $max2 )  $max2 = $velocidad2;
+        if($velocidad2 < $min2 )  $min2 = $velocidad2;
 
         $ritmo2 = (($deltaT2*60)/2);
         $ritmo2 = formatoMin($ritmo2, true);
@@ -223,6 +231,7 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
         $velocidad5 = 5/$deltaT5;
 
         if($velocidad5 > $max5 )  $max5 = $velocidad5;
+        if($velocidad5 < $min5 )  $min5 = $velocidad5;
 
         $ritmo5 = (($deltaT5*60)/5);
         $ritmo5 = formatoMin($ritmo5, true);
@@ -248,6 +257,11 @@ function ultimoRitmo($tiempoTranscurrido, $distanciaDesdeInicio, $distVuelta, $u
   global $max2;
   global $max5;
 
+  global $min05;
+  global $min1;
+  global $min2;
+  global $min5;
+
   $deltaT = $tiempoTranscurrido-$ultimoTiempo;
   $distVuelta2 = $distVuelta;
   $distVuelta = $distanciaDesdeInicio - ((int) ($distanciaDesdeInicio/$distVuelta))*$distVuelta;
@@ -256,15 +270,19 @@ function ultimoRitmo($tiempoTranscurrido, $distanciaDesdeInicio, $distVuelta, $u
   switch ($distVuelta2) {
     case 0.5:
       if ($velocidad > $max05) $max05 = $velocidad;
+      if ($velocidad < $min05) $min05 = $velocidad;
       break;
     case 1:
       if ($velocidad > $max1) $max1 = $velocidad;
+      if ($velocidad < $min1) $min1 = $velocidad;
       break;
     case 2:
       if ($velocidad > $max2) $max2 = $velocidad;
+      if ($velocidad < $min2) $min2 = $velocidad;
       break;
     case 5:
       if ($velocidad > $max5) $max5 = $velocidad;
+      if ($velocidad < $min5) $min5 = $velocidad;
       break;
   
     }
