@@ -107,7 +107,7 @@ function cambioVuelta(){
 			  <?php foreach ($medioKm as $key => $value) {
 				if($value[1] >= $max05){
 				?>
-			  	<tr bgcolor="#4db8ff">
+			  	<tr style="background-color:#4db8ff">
 				<?php
 				}
 				else{
@@ -133,8 +133,18 @@ function cambioVuelta(){
 		    <th>Duración de vuelta</th>
 		    <th>Distancia</th>
 		  </tr>
-			  <?php foreach ($unKm as $key => $value) {	?>
-			  <tr>
+			  <?php foreach ($unKm as $key => $value) {
+				if($value[1] >= $max1){
+				?>
+			  	<tr style="background-color:#4db8ff">
+				<?php
+				}
+				else{
+				?>
+			  	<tr>
+				<?php
+				}
+				?>
 			  	<td><?= $key+1; ?>
 			  	<td><?= round($value[1], 2); ?>
 			  	<td><?= $value[0]; ?>
@@ -152,8 +162,18 @@ function cambioVuelta(){
 		    <th>Duración de vuelta</th>
 		    <th>Distancia</th>
 		  </tr>
-			  <?php foreach ($dosKm as $key => $value) {	?>
-			  <tr>
+			  <?php foreach ($dosKm as $key => $value) {
+				if($value[1] >= $max2){
+				?>
+			  	<tr style="background-color:#4db8ff">
+				<?php
+				}
+				else{
+				?>
+			  	<tr>
+				<?php
+				}
+				?>
 			  	<td><?= $key+1; ?>
 			  	<td><?= round($value[1], 2); ?>
 			  	<td><?= $value[0]; ?>
@@ -171,8 +191,18 @@ function cambioVuelta(){
 		    <th>Duración de vuelta</th>
 		    <th>Distancia</th>
 		  </tr>
-			  <?php foreach ($cincoKm as $key => $value) {	?>
-			  <tr>
+			  <?php foreach ($cincoKm as $key => $value) {
+				if($value[1] >= $max5){
+				?>
+			  	<tr style="background-color:#4db8ff">
+				<?php
+				}
+				else{
+				?>
+			  	<tr>
+				<?php
+				}
+				?>
 			  	<td><?= $key+1; ?>
 			  	<td><?= round($value[1], 2); ?>
 			  	<td><?= $value[0]; ?>

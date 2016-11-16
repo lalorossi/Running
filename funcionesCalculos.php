@@ -198,6 +198,9 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
     if($vuelta05 == $vuelta1){
       $deltaT1 = $time - $tiempoInicial1;
       $velocidad1 = 1/$deltaT1;
+
+      if($velocidad1 > $max1 )  $max1 = $velocidad1;
+
       $ritmo1 = ($deltaT1*60);
       $ritmo1 = formatoMin($ritmo1, true);
       array_push($unKm, [$ritmo1, $velocidad1, formatoMin($deltaT1*60), $vuelta1]);
@@ -205,6 +208,9 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
       if($vuelta1%2 == 0){
         $deltaT2 = $time - $tiempoInicial2;
         $velocidad2 = 2/$deltaT2;
+
+        if($velocidad2 > $max2 )  $max2 = $velocidad2;
+
         $ritmo2 = (($deltaT2*60)/2);
         $ritmo2 = formatoMin($ritmo2, true);
         array_push($dosKm, [$ritmo2, $velocidad2, formatoMin($deltaT2*60), $vuelta1]);
@@ -215,6 +221,9 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
       if($vuelta1%5 == 0){
         $deltaT5 = $time - $tiempoInicial5;
         $velocidad5 = 5/$deltaT5;
+
+        if($velocidad5 > $max5 )  $max5 = $velocidad5;
+
         $ritmo5 = (($deltaT5*60)/5);
         $ritmo5 = formatoMin($ritmo5, true);
         array_push($cincoKm, [$ritmo5, $velocidad5, formatoMin($deltaT5*60), $vuelta1]);
@@ -234,9 +243,32 @@ function ritmos2(&$medioKm, &$unKm, &$dosKm, &$cincoKm){
 //Sacar los últimos ritmos de vuelta
 function ultimoRitmo($tiempoTranscurrido, $distanciaDesdeInicio, $distVuelta, $ultimoTiempo, &$array){
   
+  global $max05;
+  global $max1;
+  global $max2;
+  global $max5;
+
   $deltaT = $tiempoTranscurrido-$ultimoTiempo;
+  $distVuelta2 = $distVuelta;
   $distVuelta = $distanciaDesdeInicio - ((int) ($distanciaDesdeInicio/$distVuelta))*$distVuelta;
   $velocidad = $distVuelta/$deltaT;
+
+  switch ($distVuelta2) {
+    case 0.5:
+      if ($velocidad > $max05) $max05 = $velocidad;
+      break;
+    case 1:
+      if ($velocidad > $max1) $max1 = $velocidad;
+      break;
+    case 2:
+      if ($velocidad > $max2) $max2 = $velocidad;
+      break;
+    case 5:
+      if ($velocidad > $max5) $max5 = $velocidad;
+      break;
+  
+    }
+
   $ritmo = (($deltaT*60)/$distVuelta);
   $ritmo = formatoMin($ritmo, true);
   array_push($array, [$ritmo, $velocidad, formatoMin($deltaT*60), $distanciaDesdeInicio]);

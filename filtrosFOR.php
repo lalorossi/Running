@@ -23,6 +23,11 @@ $distTotalPausa = 0;
 $tiempoPausa = 0;
 $distPausa = 0;
 
+$max05 = 0;
+$max1 = 0;
+$max2 = 0;
+$max5 = 0;
+
 end($velocidades);         // move the internal pointer to the end of the array
 $key = key($velocidades);
 
@@ -76,7 +81,5 @@ ultimoRitmo($tiempoConPausa, $distConPausa, 0.5, $tiempoInicial05, $medioKm);
 ultimoRitmo($tiempoConPausa, $distConPausa, 1, $tiempoInicial1, $unKm);
 ultimoRitmo($tiempoConPausa, $distConPausa, 2, $tiempoInicial2, $dosKm);
 ultimoRitmo($tiempoConPausa, $distConPausa, 5, $tiempoInicial5, $cincoKm);
-
-
 
 ?>
