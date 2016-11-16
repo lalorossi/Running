@@ -72,8 +72,8 @@ function cambioVuelta(){
 		<h3>Velocidad máxima</h3>
 		<?= $velMax; ?>
 		<br></br>
-		<h3>Ascenso total</h3>
-		<?= $ascTotal; ?>
+		<h3>Diferencia de alturas</h3>
+		<?= $dif; ?>
 		<br></br>
 		<h3>Ritmo</h3>
 		<?= $ritmo ?>

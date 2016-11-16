@@ -36,10 +36,12 @@ $min5 = 60;
 
 $ascTotal = 0;
 $desTotal = 0;
-$eleAnterior = $elevaciones[1][1];
+$bajo = $elevaciones[1][1];
+$alto = $elevaciones[1][1];
 
 end($velocidades);         // move the internal pointer to the end of the array
 $key = key($velocidades);
+
 
 for ($i=0; $i<$key; $i++){
 	$dist = $velocidades[$i][0];
@@ -77,15 +79,19 @@ for ($i=0; $i<$key; $i++){
 	$dist -= $distTotalPausa;
 	$distPausa = 0;
 
-	if ($i>0){
+	if ($i>1){
 		//Calculo de ascenso/descenso
 		$ele = $elevaciones[$i][1];
-		if($ele > $eleAnterior){
-			$ascTotal += ($ele - $eleAnterior);
+		$dif = $ele - $elevaciones[$i-1][1];
+		if($dif > 0){
+			$ascTotal += $dif;
 		}
 		else{
-			$desTotal += ($eleAnterior - $ele);
+			$desTotal -= $dif;
 		}
+
+		if($ele>$alto) $alto = $ele;
+		if($ele<$bajo) $bajo = $ele;
 
 		$eleAnterior = $ele;
 		echo $ascTotal."--------------".$desTotal. "<br>";
@@ -101,6 +107,7 @@ for ($i=0; $i<$key; $i++){
 	} 
 	//Aplicar las pausas a los array de elevaciones y distancias
 }
+$dif = $alto - $bajo;
 //Calculo de ritmos de vueltas finales incompletas
 ultimoRitmo($tiempoConPausa, $distConPausa, 0.5, $tiempoInicial05, $medioKm);
 ultimoRitmo($tiempoConPausa, $distConPausa, 1, $tiempoInicial1, $unKm);
